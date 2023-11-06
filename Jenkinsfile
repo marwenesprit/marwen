@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+  stages {
      stage('Getting project from Git') {
             steps{
       			checkout([$class: 'GitSCM', branches: [[name: '*/main']],
@@ -19,4 +19,5 @@ pipeline {
                 sh "mvn -B -DskipTests package"
             }
         }
+  }
 }
